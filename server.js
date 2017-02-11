@@ -1,7 +1,7 @@
 // dependecies
 var express = require("express");
-var express = require("body-parser");
-var express = require("path");
+var bodyParser = require("body-parser");
+var path = require("path");
 
 // express configuration
 // tells node that an express server is being created
