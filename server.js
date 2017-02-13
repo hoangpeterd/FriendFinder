@@ -16,16 +16,8 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // points our server to a series of route files
-var apiRoutes = require("./app/routing/apiRoutes.js");
-var htmlRoutes = require("./app/routing/htmlRoutes.js");
-
-//imports URLs from routing folder
-app.use("/", api.getFriends);
-app.use("/", api.postFriends);
-app.use("/", routes.home);
-app.use("/", routes.survey);
-// allows the server to call into the directory
-app.use(express.static(path.join(__dirname, "/app/public")));
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 // listener that starts server
 app.listen(PORT, function() {
